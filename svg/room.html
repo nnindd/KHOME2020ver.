@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>K-HOME 2020ver.</title>
+    
+    <style>
+        @font-face {
+            font-family: 'GmarketSansBold';
+            src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansBold.woff') format('woff');
+            font-weight: normal;
+            font-style: normal;
+        }
+        body {
+            background-color: #f7f6f7;
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100%;
+            display: block;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        /*가운데정렬*/
+        #header #f-main {
+            display: inline-block;
+        }
+
+        /*------------헤더------------*/
+        #header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 83px;
+            width: 60%;
+            padding: 0 20%;
+            background: none;
+            z-index: 1;
+        }
+
+        /*로고*/
+        .logo #a #logo-img {
+            width: 117px;
+            /*로고영역, 로고이미지, a태그 가로 고정*/
+        }
+
+        .logo {
+            cursor: pointer;
+            /*마우스 모양은 포인터로*/
+        }
+
+        /*------------헤더 끝------------*/
+        
+        /*-----------메인 부분------------*/
+        #f-main {
+            width: 100%;
+            height: 100%;
+            margin-top: 1rem;
+            user-select: none;
+        }
+        
+        /*------------카테고리------------*/
+        #category{
+            position: absolute;
+            top: 10%;
+            left: 70%;
+            z-index: 1;
+            font-family: 'GmarketSansBold';
+        }
+        a{
+            text-decoration: none;
+            color: black;
+        }
+        ul li{
+            text-align: left;
+            list-style: none;
+        }
+        li{
+            padding: 1.5rem 0;
+            transition: 0.5s;
+        }
+        .c{cursor: pointer; font-size: 28px;}
+        .c:hover{color: black;}
+        
+        .svg-area{
+            margin-right: 10%;
+            transition: 0.5s;
+        }
+                
+        svg{
+            width: 100%;
+            height: 85vh;
+        }
+       /* -webkit-transform
+        -moz-transform
+        -o-transform*/
+        
+        #hobby-group{cursor: pointer;}
+        #newnormal-group{cursor: pointer;}
+        #food-group{cursor: pointer;}
+        #fashion-group{cursor: pointer;}
+        #environment-group{cursor: pointer;}
+        
+        /*~~~~~~~~~~환경~~~~~~~~~*/
+        #pictureframe{transition: 0.5s;}
+        #plants{transition: 0.5s;}
+        #trashbox{transition: 0.5s; }
+        
+        #pictureframe:hover{
+            -webkit-transform-origin: 42% 23%; 
+            -moz-transform-origin: 42% 23%; 
+            -o-transform-origin: 42% 23%; 
+            transform-origin: 42% 23%; 
+            -webkit-transform: scale(0.33); 
+            -moz-transform: scale(0.33); 
+            -o-transform: scale(0.33); 
+            transform: scale(0.33);
+        }
+        #plants:hover{
+            -webkit-transform-origin: 42% 99%; 
+            -moz-transform-origin: 42% 99%; 
+            -o-transform-origin: 42% 99%; 
+            transform-origin: 42% 99%; -webkit-transform: scale(0.28); -moz-transform: scale(0.28); -o-transform: scale(0.28); transform: scale(0.28);}
+        #trashbox:hover{
+            -webkit-transform-origin: 41% 48%; 
+            -moz-transform-origin: 41% 48%; 
+            -o-transform-origin: 41% 48%;  
+            transform-origin: 41% 48%; -webkit-transform: scale(0.35); -moz-transform: scale(0.35); -o-transform: scale(0.35); transform: scale(0.35);}
+        
+        /*~~~~~~~~~~취미~~~~~~~~~*/
+        #book{transition: 0.5s;}
+        #phone{transition: 0.5s;}
+        #sofa{transition: 0.5s;}
+        #polaroid{transition: 0.5s;}
+        
+        #book:hover{transform-origin: 48% 18%; transform: scale(0.3);}
+        #phone:hover{transform-origin: 78% 126%; transform: scale(0.38);}
+        #sofa:hover{transform-origin: 49% 60%; transform: scale(0.31);}
+        #polaroid:hover{transform-origin: 93% 28%; transform: scale(0.32);}
+        
+        /*~~~~~~~~~~뉴노멀~~~~~~~~~*/
+        #cleaner{transition: 0.5s;}
+        #desk{transition: 0.5s;}
+        #exercise{transition: 0.5s;}
+        #clock{transition: 0.5s;}
+        #kmask{transition: 0.5s;}
+        
+        #cleaner:hover{transform-origin: 113% 65%; transform: scale(0.29);}
+        #desk:hover{transform-origin: 60% 28%; transform: scale(0.3);}
+        #exercise:hover{transform-origin: 78% 54%; transform: scale(0.3);}
+        #clock:hover{transform-origin: 78% 19%; transform: scale(0.3);}
+        #kmask:hover{transform-origin: 117% 53%; transform: scale(0.3);}
+        
+        /*~~~~~~~~~~음식~~~~~~~~~*/
+        #kitchen{transition: 0.5s;}
+        #refrigerator{transition: 0.5s;}
+        
+        #kitchen:hover{transform-origin: 3% 35%; transform: scale(0.27);}
+        #refrigerator:hover{transform-origin: 28% 36%; transform: scale(0.3);}
+        
+        /*~~~~~~~~~~패션~~~~~~~~~*/
+        #mirror{transition: 0.5s;}
+        #hanger{transition: 0.5s;}
+        
+        #mirror:hover{transform-origin: 103% 48%; transform: scale(0.3);}
+        #hanger:hover{transform-origin: 84% 72%; transform: scale(0.28);}
+        
+        /*#enviroment-group
+        #hobby-group
+        #newnormal-group
+        #food-group
+        #fashion-group*/
+        
+    </style>
+    
+    <script src="//code.jquery.com/jquery-3.5.1.js"></script>
+    <script>
+        $(function(){
+            /*환경*/
+            $('#pictureframe, #plants, #trashbox').hover(function(){
+                /*카테고리 텍스트 효과*/
+                $('li').css("color", "lightgrey");
+                $('#en').css("color", "black");
+                /*흑백*/
+                $('#fashion-group, #food-group, #newnormal-group, #hobby-group, #bg-group, #bg-room').css({
+                    "-webkit-filter":"url(#greyscale)",
+                    "-moz-filter":"url(#greyscale)",
+                    "-o-filter":"url(#greyscale)",
+                    "filter":"url(#greyscale)"
+                });
+                /*카테고리 환경으로 이동*/
+                $(this).click(function(){
+                    $(location).attr('href', "environment.html");
+                });
+            }, function(){
+                /*카테고리 텍스트 효과*/
+                $('li').css("color", "black");
+                /*흑백*/
+                $('#fashion-group, #food-group, #newnormal-group, #hobby-group, #bg-group, #bg-room').css({
+                    "-webkit-filter":"none",
+                    "-moz-filter":"none",
+                    "-o-filter":"none",
+                    "filter":"none"
+                });
+            });
+            
+            /*음식*/
+            $('#kitchen, #refrigerator').hover(function(){
+                $('li').css("color", "lightgrey");
+                $('#fo').css("color", "black");
+                /*흑백*/
+                $('#fashion-group, #environment-group, #newnormal-group, #hobby-group, #bg-group, #bg-room').css({
+                    "-webkit-filter":"url(#greyscale)",
+                    "-moz-filter":"url(#greyscale)",
+                    "-o-filter":"url(#greyscale)",
+                    "filter":"url(#greyscale)"
+                });
+                $(this).click(function(){
+                    $(location).attr('href', "food.html");
+                });
+            }, function(){
+                $('li').css("color", "black");
+                /*흑백*/
+                $('#fashion-group, #environment-group, #newnormal-group, #hobby-group, #bg-group, #bg-room').css({
+                    "-webkit-filter":"none",
+                    "-moz-filter":"none",
+                    "-o-filter":"none",
+                    "filter":"none"
+                });
+            });
+            
+            /*패션*/
+            $('#mirror, #hanger').hover(function(){
+                $('li').css("color", "lightgrey");
+                $('#fa').css("color", "black");
+                /*흑백*/
+                $('#environment-group, #food-group, #newnormal-group, #hobby-group, #bg-group, #bg-room').css({
+                    "-webkit-filter":"url(#greyscale)",
+                    "-moz-filter":"url(#greyscale)",
+                    "-o-filter":"url(#greyscale)",
+                    "filter":"url(#greyscale)"
+                });
+                $(this).click(function(){
+                    $(location).attr('href', "fashion.html");
+                });
+            }, function(){
+                $('li').css("color", "black");
+                /*흑백*/
+                $('#environment-group, #food-group, #newnormal-group, #hobby-group, #bg-group, #bg-room').css({
+                    "-webkit-filter":"none",
+                    "-moz-filter":"none",
+                    "-o-filter":"none",
+                    "filter":"none"
+                });
+            });
+
+            /*취미*/
+            $('#book, #phone, #sofa, #polaroid').hover(function(){
+                $('li').css("color", "lightgrey");
+                $('#ho').css("color", "black");
+                /*흑백*/
+                $('#fashion-group, #food-group, #newnormal-group, #environment-group, #bg-group, #bg-room').css({
+                    "-webkit-filter":"url(#greyscale)",
+                    "-moz-filter":"url(#greyscale)",
+                    "-o-filter":"url(#greyscale)",
+                    "filter":"url(#greyscale)"
+                });
+                $(this).click(function(){
+                    $(location).attr('href', "hobby.html");
+                });
+            }, function(){
+                $('li').css("color", "black");
+                /*흑백*/
+                $('#fashion-group, #food-group, #newnormal-group, #environment-group, #bg-group, #bg-room').css({
+                    "-webkit-filter":"none",
+                    "-moz-filter":"none",
+                    "-o-filter":"none",
+                    "filter":"none"
+                });
+            });
+
+            /*뉴노멀*/
+            $('#cleaner, #desk, #exercise, #clock, #kmask').hover(function(){
+                $('li').css("color", "lightgrey");
+                $('#ne').css("color", "black");
+                /*흑백*/
+                $('#fashion-group, #food-group, #environment-group, #hobby-group, #bg-group, #bg-room').css({
+                    "-webkit-filter":"url(#greyscale)",
+                    "-moz-filter":"url(#greyscale)",
+                    "-o-filter":"url(#greyscale)",
+                    "filter":"url(#greyscale)"
+                });
+                $(this).click(function(){
+                    $(location).attr('href', "newnormal.html");
+                });
+            }, function(){
+                $('li').css("color", "black");
+                /*흑백*/
+                $('#fashion-group, #food-group, #environment-group, #hobby-group, #bg-group, #bg-room').css({
+                    "-webkit-filter":"none",
+                    "-moz-filter":"none",
+                    "-o-filter":"none",
+                    "filter":"none"
+                });
+            });
+            
+            
+            
+            $('#fo').hover(function(){
+                $('#fa, #en, #ho, #ne').css("color", "lightgrey");
+                $('#fashion-group, #environment-group, #newnormal-group, #hobby-group, #bg-group, #bg-room').css({
+                    "-webkit-filter":"url(#greyscale)",
+                    "-moz-filter":"url(#greyscale)",
+                    "-o-filter":"url(#greyscale)",
+                    "filter":"url(#greyscale)"
+                });
+            }, function(){
+                $('#fa, #en, #ho, #ne').css("color", "black");
+                $('#fashion-group, #environment-group, #newnormal-group, #hobby-group, #bg-group, #bg-room').css({
+                    "-webkit-filter":"none",
+                    "-moz-filter":"none",
+                    "-o-filter":"none",
+                    "filter":"none"
+                });
+            });
+            $('#fa').hover(function(){
+                $('#fo, #en, #ho, #ne').css("color", "lightgrey");
+                $('#environment-group, #food-group, #newnormal-group, #hobby-group, #bg-group, #bg-room').css({
+                    "-webkit-filter":"url(#greyscale)",
+                    "-moz-filter":"url(#greyscale)",
+                    "-o-filter":"url(#greyscale)",
+                    "filter":"url(#greyscale)"
+                });
+            }, function(){
+                $('#fo, #en, #ho, #ne').css("color", "black");
+                $('#environment-group, #food-group, #newnormal-group, #hobby-group, #bg-group, #bg-room').css({
+                    "-webkit-filter":"none",
+                    "-moz-filter":"none",
+                    "-o-filter":"none",
+                    "filter":"none"
+                });
+            });
+            $('#en').hover(function(){
+                $('#fa, #fo, #ho, #ne').css("color", "lightgrey");
+                $('#fashion-group, #food-group, #newnormal-group, #hobby-group, #bg-group, #bg-room').css({
+                    "-webkit-filter":"url(#greyscale)",
+                    "-moz-filter":"url(#greyscale)",
+                    "-o-filter":"url(#greyscale)",
+                    "filter":"url(#greyscale)"
+                });
+            }, function(){
+                $('#fa, #fo, #ho, #ne').css("color", "black");
+                $('#fashion-group, #food-group, #newnormal-group, #hobby-group, #bg-group, #bg-room').css({
+                    "-webkit-filter":"none",
+                    "-moz-filter":"none",
+                    "-o-filter":"none",
+                    "filter":"none"
+                }); 
+            });
+            $('#ho').hover(function(){
+                $('#fa, #en, #fo, #ne').css("color", "lightgrey");
+                $('#fashion-group, #food-group, #newnormal-group, #environment-group, #bg-group, #bg-room').css({
+                    "-webkit-filter":"url(#greyscale)",
+                    "-moz-filter":"url(#greyscale)",
+                    "-o-filter":"url(#greyscale)",
+                    "filter":"url(#greyscale)"
+                });
+            }, function(){
+                $('#fa, #en, #fo, #ne').css("color", "black");
+                $('#fashion-group, #food-group, #newnormal-group, #environment-group, #bg-group, #bg-room').css({
+                    "-webkit-filter":"none",
+                    "-moz-filter":"none",
+                    "-o-filter":"none",
+                    "filter":"none"
+                });
+            });
+            $('#ne').hover(function(){
+                $('#fa, #en, #ho, #fo').css("color", "lightgrey");
+                $('#fashion-group, #food-group, #environment-group, #hobby-group, #bg-group, #bg-room').css({
+                    "-webkit-filter":"url(#greyscale)",
+                    "-moz-filter":"url(#greyscale)",
+                    "-o-filter":"url(#greyscale)",
+                    "filter":"url(#greyscale)"
+                });
+            }, function(){
+                $('#fa, #en, #ho, #fo').css("color", "black");
+                $('#fashion-group, #food-group, #environment-group, #hobby-group, #bg-group, #bg-room').css({
+                    "-webkit-filter":"none",
+                    "-moz-filter":"none",
+                    "-o-filter":"none",
+                    "filter":"none"
+                });
+            });
+            
+            
+
+        });
+    </script>
+    
+    
+</head>
+<body>
+    <!--헤더부분-->
+    <section id="header">
+        <div class="logo">
+            <a id="a" href="../intro.html">
+                <!--***********이미지 경로 수정*********-->
+                <img id="logo-img" src="../images/logo.png">
+            </a>
+        </div>
+        <!--양끝 맞추기 위한 여백-->
+        <div class="null-a">
+            <p>&nbsp;</p>
+        </div>
+    </section>
+
+    <!--메인 영역 svg-->
+    <section id="f-main">
+
+        <div class="svg-area">
+            <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 1256.4 1052.2">
+               <filter id="greyscale">
+                   <feColorMatrix type="matrix"
+                   values="0.3333 0.3333 0.3333 0 0
+                           0.3333 0.3333 0.3333 0 0
+                           0.3333 0.3333 0.3333 0 0
+                           0 0 0 1 0" />
+                </filter>
+                <g id="bg-room">
+                    <image id="roomgroud" width="5235" height="4384" transform="scale(0.24)" xlink:href="room1.png" />
+                </g>
+                <g id="environment-group">
+                    <image id="trashbox" width="613" height="583" transform="translate(361.9 355.2) scale(0.24)" xlink:href="room2.png" />
+                    <image id="plants" width="321" height="517" transform="translate(384.5 776.6) scale(0.24)" xlink:href="room3.png" />
+                    <image id="pictureframe" width="265" height="582" transform="translate(368.9 202.6) scale(0.24)" xlink:href="room4.png" />
+                </g>
+                <g id="bg-group">
+                    <image id="table" width="974" height="776" transform="translate(189.6 654) scale(0.24)" xlink:href="room5.png" />
+                    <image id="door" width="2715" height="2027" transform="translate(578.6 375.6) scale(0.24)" xlink:href="room6.png" />
+                    <image id="lamp" width="305" height="753" transform="translate(443.3 746.2) scale(0.24)" xlink:href="room7.png" />
+                    <image id="bed" width="1389" height="982" transform="translate(505.4 784.8) scale(0.24)" xlink:href="room8.png" />
+                </g>
+                <g id="hobby-group">
+                    <image id="polaroid" width="451" height="635" transform="translate(797.3 210.7) scale(0.24)" xlink:href="room9.png" />
+                    <image id="sofa" width="1219" height="1045" transform="translate(457.1 483.9) scale(0.24)" xlink:href="room10.png" />
+                    <image id="phone" width="230" height="125" transform="translate(616.6 833.5) scale(0.3)" xlink:href="room11.png" />
+                    <image id="book" width="703" height="706" transform="translate(431.5 162.7) scale(0.24)" xlink:href="room12.png" />
+                </g>
+                <g id="newnormal-group">
+                    <image id="kmask" width="229" height="402" transform="translate(1029.1 400.6) scale(0.24)" xlink:href="room13.png" />
+                    <image id="clock" width="223" height="249" transform="translate(701.3 145) scale(0.24)" xlink:href="room14.png" />
+                    <image id="exercise" width="803" height="597" transform="translate(727.4 425.5) scale(0.24)" xlink:href="room15.png" />
+                    <image id="desk" width="897" height="874" transform="translate(556.1 241.7) scale(0.24)" xlink:href="room16.png" />
+                    <image id="cleaner" width="269" height="508" transform="translate(1021.9 501.4) scale(0.24)" xlink:href="room17.png" />
+                </g>
+                <g id="food-group">
+                    <image id="refrigerator" width="538" height="1002" transform="translate(245.8 313.7) scale(0.24)" xlink:href="room18.png" />
+                    <image id="kitchen" width="1124" height="1869" transform="translate(27.4 302.9) scale(0.24)" xlink:href="room19.png" />
+                </g>
+                <g id="fashion-group">
+                    <image id="hanger" width="1021" height="1077" transform="translate(774.2 589.4) scale(0.24)" xlink:href="room20.png" />
+                    <image id="mirror" width="354" height="842" transform="translate(907.7 360.5) scale(0.24)" xlink:href="room21.png" />
+                </g>
+            </svg>
+        </div>
+
+
+        <section id="category">
+            <ul>
+               <a href="food.html"><li class="c" id="fo">FOOD</li></a>
+               <a href="fashion.html"><li class="c" id="fa">FASHION</li></a>
+               <a href="environment.html"><li class="c" id="en">ENVIRONMENT</li></a>
+               <a href="hobby.html"><li class="c" id="ho">HOBBY</li></a>
+               <a href="newnormal.html"><li class="c" id="ne">NEW NORMAL</li></a>
+            </ul>
+        </section>
+
+    </section>
+
+
+
+</body>
+</html>

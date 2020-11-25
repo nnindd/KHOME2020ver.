@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>K-HOME 2020ver.</title>
+    
+    <style>
+        body {
+            background-color: #EAE5E1;
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100%;
+            display: block;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        /*가운데정렬*/
+        #header #f-main {
+            display: inline-block;
+        }
+
+        /*------------헤더------------*/
+        #header {
+            position: absolute;
+            top: 0;
+            left: 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 83px;
+            width: 60%;
+            padding: 0 20%;
+            background: none;
+            z-index: 1;
+        }
+
+        /*로고*/
+        .logo #a #logo-img {
+            width: 117px;
+            /*로고영역, 로고이미지, a태그 가로 고정*/
+        }
+
+        .logo {
+            cursor: pointer;
+            /*마우스 모양은 포인터로*/
+        }
+
+        /*------------헤더 끝------------*/
+        /*-----------메인 부분------------*/
+        #f-main {
+            /*영역을 전체영역으로 설정*/
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+        svg {
+            width: 100%;
+        }
+ 
+        #cg{cursor: pointer; transform-origin: 25% 25%;}
+        #hg{cursor: pointer; transform-origin: 37.5% 45%;}
+        #vg{cursor: pointer; transform-origin: 50% 20%;}
+        #gg{cursor: pointer; transform-origin: 62.5% 45%;}
+        #bg{cursor: pointer; transform-origin: 75% 25%;}
+        
+        #vg:hover{animation: swing 1s 1;}
+        #cg:hover{animation: swing 1s 1;}
+        #hg:hover{animation: swing 1s 1;}
+        #bg:hover{animation: swing 1s 1;}
+        #gg:hover{animation: swing 1s 1;}
+
+        @-webkit-keyframes swing{
+            20%{transform: rotate(5deg);}
+            40%{transform: rotate(-3deg);}
+            60%{transform: rotate(2deg);}
+            80%{transform: rotate(-2deg);}
+            100%{transform: rotate(0deg);}
+        }
+        
+    </style>
+    
+    <script src="//code.jquery.com/jquery-3.5.1.js"></script>
+    <script>
+        $(function() {
+            $('#p-video').hover(function() {
+                /*hover일때*/
+                $('#vs').css("animation-play-state", "running");
+                $('#vg').hover(function() {
+                    /*vg hover일때*/
+                    $('#vs').css("animation-play-state", "running");
+                    $(this).click(function() {
+                        /*이동*/
+                        $(location).attr('href', "../video.html");
+                    });
+                }, function() {
+                    /*vg hover아닐때*/
+                });
+
+            }, function() {
+                /*hover나왔을때*/
+                $('#vs').css("animation-play-state", "paused");
+            });
+
+            $('#p-camp').hover(function() {
+                /*hover일때*/
+                $('#cs').css("animation-play-state", "running");
+                $('#cg').hover(function() {
+                    /*vg hover일때*/
+                    $('#cs').css("animation-play-state", "running");
+                    $(this).click(function() {
+                        /*이동*/
+                        $(location).attr('href', "../climbing-camping.html");
+                    });
+                }, function() {
+                    /*vg hover아닐때*/
+                });
+
+            }, function() {
+                /*hover나왔을때*/
+                $('#cs').css("animation-play-state", "paused");
+            });
+
+            $('#p-hobby').hover(function() {
+                /*hover일때*/
+                $('#hs').css("animation-play-state", "running");
+                $('#hg').hover(function() {
+                    /*vg hover일때*/
+                    $('#hs').css("animation-play-state", "running");
+                    $(this).click(function() {
+                        /*이동*/
+                        $(location).attr('href', "../platform.html");
+                    });
+                }, function() {
+                    /*vg hover아닐때*/
+                });
+
+            }, function() {
+                /*hover나왔을때*/
+                $('#hs').css("animation-play-state", "paused");
+            });
+
+            $('#p-book').hover(function() {
+                /*hover일때*/
+                $('#bs').css("animation-play-state", "running");
+                $('#bg').hover(function() {
+                    /*vg hover일때*/
+                    $('#bs').css("animation-play-state", "running");
+                    $(this).click(function() {
+                        /*이동*/
+                        $(location).attr('href', "../literature.html");
+                    });
+                }, function() {
+                    /*vg hover아닐때*/
+                });
+
+            }, function() {
+                /*hover나왔을때*/
+                $('#bs').css("animation-play-state", "paused");
+            });
+
+            $('#p-game').hover(function() {
+                /*hover일때*/
+                $('#gs').css("animation-play-state", "running");
+                $('#gg').hover(function() {
+                    /*vg hover일때*/
+                    $('#gs').css("animation-play-state", "running");
+                    $(this).click(function() {
+                        /*이동*/
+                        $(location).attr('href', "../game.html");
+                    });
+                }, function() {
+                    /*vg hover아닐때*/
+                });
+
+            }, function() {
+                /*hover나왔을때*/
+                $('#gs').css("animation-play-state", "paused");
+            });
+
+
+        });
+    </script>
+    
+    
+</head>
+<body>
+   
+   <!--헤더부분-->
+    <section id="header">
+        <div class="logo">
+            <a id="a" href="room.html">
+                <!--***********이미지 경로 수정*********-->
+                <img id="logo-img" src="../images/logo.png">
+            </a>
+        </div>
+        <!--양끝 맞추기 위한 여백-->
+        <div class="null-a">
+            <p>&nbsp;</p>
+        </div>
+    </section>
+    
+    
+    
+    <!--더 내리면 렉걸림!!!-->
+    
+    
+    
+    <!--메인 영역 svg-->
+    <section id="f-main">
+        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 1920 993.1"><defs><style>.cls-1{fill:#fff;stroke:#231815;stroke-linecap:round;stroke-linejoin:round;stroke-width:4px;}</style></defs><g id="p-bg"><image width="8000" height="4138" transform="scale(0.24)" xlink:href="hobby1.png"/></g><g id="p-shadow"><g id="hs"><image width="1462" height="1977" transform="translate(516.5 457.2) scale(0.23 0.23)" xlink:href="hobby2.png"/></g><g id="cs"><image width="1462" height="1978" transform="translate(283 174.8) scale(0.25 0.24)" xlink:href="hobby3.png"/></g><g id="vs"><image width="1461" height="1977" transform="translate(796.2 153.5) scale(0.22 0.23)" xlink:href="hobby4.png"/></g><g id="gs"><image width="1462" height="1978" transform="translate(1039.8 439.1) scale(0.24 0.24)" xlink:href="hobby5.png"/></g><g id="bs"><image width="1462" height="1978" transform="translate(1303.8 186) scale(0.22 0.25)" xlink:href="hobby6.png"/></g></g><g id="p-game"><g id="gg"><rect class="cls-1" x="1065.2" y="468" width="268.8" height="388.16"/><image width="983" height="1019" transform="translate(1081.7 555.5) scale(0.24)" xlink:href="hobby7.png"/><image width="234" height="206" transform="translate(1170.7 507.8) scale(0.24)" xlink:href="hobby8.png"/></g><image id="gpin" width="389" height="376" transform="translate(1142.2 430.9) scale(0.24)" xlink:href="hobby9.png"/></g><g id="p-book"><g id="bg"><rect class="cls-1" x="1303.8" y="222" width="278.1" height="401.57"/><image width="1016" height="1053" transform="translate(1321 312.7) scale(0.24)" xlink:href="hobby10.png"/><image width="206" height="213" transform="translate(1417.4 255.8) scale(0.24)" xlink:href="hobby11.png"/></g><image id="bpin" width="409" height="371" transform="translate(1371.6 192) scale(0.24)" xlink:href="hobby12.png"/></g><g id="p-hobby"><g id="hg"><rect class="cls-1" x="572.2" y="472.8" width="266.4" height="384.59"/><image width="1199" height="1116" transform="translate(560.6 559.6) scale(0.24)" xlink:href="hobby13.png"/><image width="485" height="185" transform="translate(647 509) scale(0.24)" xlink:href="hobby14.png"/></g><image id="hpin" width="402" height="361" transform="translate(647 443.2) scale(0.24)" xlink:href="hobby15.png"/></g><g id="p-camp"><g id="cg"><rect class="cls-1" x="336.8" y="208.7" width="268.3" height="387.44"/><image width="981" height="1017" transform="translate(353.3 296.1) scale(0.24)" xlink:href="hobby16.png"/><image width="492" height="205" transform="translate(411.8 244.8) scale(0.24)" xlink:href="hobby17.png"/></g><image id="cpin" width="353" height="349" transform="translate(414 174.9) scale(0.24)" xlink:href="hobby18.png"/></g><g id="p-video"><g id="vg"><rect class="cls-1" x="820.7" y="174.8" width="265.5" height="383.39"/><image width="1009" height="1145" transform="translate(836.9 261.1) scale(0.24)" xlink:href="hobby19.png"/><image width="430" height="203" transform="translate(901.9 207.4) scale(0.24)" xlink:href="hobby20.png"/></g><image id="vpin" width="402" height="374" transform="translate(894.5 141.1) scale(0.24)" xlink:href="hobby21.png"/></g></svg>
+        
+    </section>
+    
+</body>
+</html>

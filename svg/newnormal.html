@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>K-HOME 2020ver.</title>
+    
+    <style>
+        body {
+            background-color: #EAE8E8;
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100%;
+            display: block;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        /*가운데정렬*/
+        #header #f-main {
+            display: inline-block;
+        }
+
+        /*------------헤더------------*/
+        #header {
+            position: absolute;
+            top: 0;
+            left: 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 83px;
+            width: 60%;
+            padding: 0 20%;
+            background: none;
+            z-index: 1;
+        }
+
+        /*로고*/
+        .logo #a #logo-img {
+            width: 117px;
+            /*로고영역, 로고이미지, a태그 가로 고정*/
+        }
+
+        .logo {
+            cursor: pointer;
+            /*마우스 모양은 포인터로*/
+        }
+
+        /*------------헤더 끝------------*/
+        /*-----------메인 부분------------*/
+        #f-main {
+            /*영역을 전체영역으로 설정*/
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+        svg {
+            width: 100%;
+        }
+        
+        /*코로나, 근무, 자기관리*/
+        #n-corona{cursor: pointer; transform-origin: center center; transition: 0.5s;}
+        #n-zoom{cursor: pointer; transform-origin: center center; transition: 0.5s;}
+        #n-home{cursor: pointer; transform-origin: center center; transition: 0.5s;}
+        
+
+        #n-corona:hover{transform: scale(1.06);}
+        #n-zoom:hover{transform: scale(1.06);}
+        #n-home:hover{transform: scale(1.06);}
+        
+    </style>
+    
+    <script src="//code.jquery.com/jquery-3.5.1.js"></script>
+    <script>
+        $(function(){
+            /*코로나 마우스오버*/
+            $('#n-corona').hover(function(){
+                $(this).click(function(){
+                    /*상세페이지 패션 온라인으로 이동*/
+                    $(location).attr('href', "../prevention.html");
+                });
+            }, function(){
+                /*원위치*/
+            });
+            
+            /*줌 마우스오버*/
+            $('#n-zoom').hover(function(){
+                $(this).click(function(){
+                    /*상세페이지 셀프포토로 이동*/
+                    $(location).attr('href', "../work.html");
+                });
+            }, function(){
+                /*원위치*/
+            });
+            
+            /*자기관리 마우스오버*/
+            $('#n-home').hover(function(){
+                $(this).click(function(){
+                    /*상세페이지 트렌드로 이동*/
+                    $(location).attr('href', "../self-care.html");
+                });
+            }, function(){
+                /*원위치*/
+            });
+        });
+    
+    </script>
+    
+    
+</head>
+<body>
+   
+   <!--헤더부분-->
+    <section id="header">
+        <div class="logo">
+            <a id="a" href="room.html">
+                <!--***********이미지 경로 수정*********-->
+                <img id="logo-img" src="../images/logo.png">
+            </a>
+        </div>
+        <!--양끝 맞추기 위한 여백-->
+        <div class="null-a">
+            <p>&nbsp;</p>
+        </div>
+    </section>
+    
+    
+    
+    <!--더 내리면 렉걸림!!!-->
+    
+    
+    
+    <!--메인 영역 svg-->
+    <section id="f-main">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 1920.5 990.2"><g id="n-bg"><image width="8002" height="4126" transform="scale(0.24)" xlink:href="newnormal1.png"/></g><g id="n-home"><image width="1898" height="1190" transform="translate(998.6 433.2) scale(0.24)" xlink:href="newnormal2.png"/><image width="657" height="691" transform="translate(1281.4 526.8) scale(0.24)" xlink:href="newnormal3.png"/></g><g id="n-zoom"><image width="2293" height="1305" transform="translate(554.2 238.8) scale(0.24)" xlink:href="newnormal4.png"/><image width="536" height="120" transform="translate(742.6 283) scale(0.24)" xlink:href="newnormal5.png"/></g><g id="n-corona"><image width="1921" height="634" transform="translate(484.8 580.3) scale(0.24)" xlink:href="newnormal6.png"/><image width="1034" height="276" transform="translate(588.7 639.4) scale(0.24)" xlink:href="newnormal7.png"/></g></svg>
+    </section>
+    
+</body>
+</html>

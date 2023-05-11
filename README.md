@@ -1,4 +1,6 @@
 # KHOME2020ver.
+### 🔗 링크
+https://culturecontentstv.github.io/KHOME2020ver./intro.html
 
 ![1조 C C tv 최종보고회_page-0001](https://user-images.githubusercontent.com/62933478/126264312-fca3b224-d94e-4c57-b554-fd8715aa12eb.jpg)
 ![1조 C C tv 최종보고회_page-0002](https://user-images.githubusercontent.com/62933478/126264318-7cf629e2-8308-4ca4-ace8-4b3a56a44f4d.jpg)
